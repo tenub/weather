@@ -20,7 +20,7 @@
 		"comma-dangle": ["error", "only-multiline"],
 		"func-names": 0,
 		"global-require": 0,
-		"import/no-amd": 0,
+		"import/extensions": ["error", "never"],
 		"import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
 		"indent": ["error", "tab", { "VariableDeclarator": 2 }],
 		"max-len": 0,
@@ -29,5 +29,9 @@
 		"no-param-reassign": 0,
 		"quote-props": ["error", "consistent-as-needed"],
 		"spaced-comment": 0
-	}
+	},
+	"plugins": [
+		"babel",
+		"react"
+	]
 }

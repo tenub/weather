@@ -12,7 +12,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.json$/,
-				include: [path.resolve(__dirname, 'data')],
+				include: [path.resolve(__dirname, 'src')],
 				loader: 'json'
 			},
 			{
@@ -37,7 +37,7 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				include: [path.resolve(__dirname, 'src')],
-				loader: ExtractTextPlugin.extract('css!resolve-url!sass?sourceMap')
+				loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!sass?sourceMap')
 			},
 			{
 				test: /.*\.(gif|png|jpe?g|svg)$/i,
@@ -47,12 +47,12 @@ module.exports = {
 		]
 	},
 	resolve: {
-		extensions: ['', '.js', '.json', '.jsx']
+		extensions: ['', '.json', '.js', '.jsx', '.scss']
 	},
 	devtool: 'source-map',
 	plugins: [
 		new CleanWebpackPlugin(['build']),
-		new ExtractTextPlugin('styles.css')
+		new ExtractTextPlugin('app.css', { allChunks: true })
 	],
 	sassLoader: {
 		includePaths: [path.resolve(__dirname, './src')]
