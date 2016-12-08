@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Weather",
   "scripts": {
-    "build": "webpack -p --progress --display-error-details --config webpack.config.js",
-    "dev": "webpack-dev-server --colors --compress --inline --hot"
+    "build": "NODE_ENV=prod webpack -p --progress --display-error-details --config webpack.config.js",
+    "dev": "NODE_ENV=dev webpack-dev-server --colors --compress --inline --hot"
   },
   "author": "Joseph Chrzan",
   "license": "ISC",
@@ -18,19 +18,15 @@
     "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
-    "clean-webpack-plugin": "^0.1.14",
-    "css-loader": "^0.26.1",
     "eslint": "^3.10.2",
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.8.0",
-    "extract-text-webpack-plugin": "^1.0.1",
     "json-loader": "^0.5.4",
-    "node-sass": "^3.13.0",
-    "react-css-modules": "^4.1.0",
-    "sass-loader": "^4.0.2",
-    "style-loader": "^0.13.1",
+    "styletron": "^2.1.2",
+    "styletron-client": "^2.1.2",
+    "styletron-react": "^2.1.2",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },

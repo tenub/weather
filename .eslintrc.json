@@ -28,6 +28,7 @@
 		"no-tabs": 0,
 		"no-param-reassign": 0,
 		"quote-props": ["error", "consistent-as-needed"],
+		"react/jsx-uses-vars": ["error"],
 		"spaced-comment": 0
 	},
 	"plugins": [
