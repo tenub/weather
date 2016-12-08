@@ -1,6 +1,5 @@
-.sass-cache
-build
-node_modules
-*.bundle.js
-*.lock
-*.log
+build/
+node_modules/
+app.bundle.js
+yarn.lock
+npm-debug.log

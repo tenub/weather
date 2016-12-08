@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
-import styles from '../app.scss';
+import styles from '../styles/app.scss';
 
-class Weather extends Component {
+class App extends Component {
 	constructor(props) {
 		super(props);
 
@@ -53,9 +53,9 @@ class Weather extends Component {
 
 	render() {
 		return (
-			<div styleName="app">
+			<div styleName="container">
 				<header>
-					{<h1>Choose a city</h1>}
+					{<h1 styleName="title">Choose a city</h1>}
 				</header>
 				<main>
 					<select onChange={this.handleCitySelection} defaultValue="-- SELECT A CITY">
@@ -84,9 +84,9 @@ class Weather extends Component {
 	}
 }
 
-Weather.propTypes = {
+App.propTypes = {
 	title: React.PropTypes.string,
 	cities: React.PropTypes.array
 };
 
-export default CSSModules(Weather, styles);
+export default CSSModules(App, styles, { errorWhenNotFound: false });

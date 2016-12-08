@@ -3,7 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	entry: ['babel-polyfill', path.resolve(__dirname, 'src/app.js')],
+	entry: ['babel-polyfill', path.resolve(__dirname, 'src/index.js')],
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'app.bundle.js'
@@ -25,10 +25,13 @@ module.exports = {
 						'react'
 					],
 					plugins: [
-						['transform-async-to-module-method', {
-							module: 'bluebird',
-							method: 'coroutine'
-						}],
+						[
+							'transform-async-to-module-method',
+							{
+								module: 'bluebird',
+								method: 'coroutine'
+							}
+						],
 						'transform-class-properties',
 						'transform-object-rest-spread'
 					]
@@ -37,19 +40,13 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				include: [path.resolve(__dirname, 'src')],
-				loader: ExtractTextPlugin.extract('style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!sass?sourceMap')
-			},
-			{
-				test: /.*\.(gif|png|jpe?g|svg)$/i,
-				include: [path.resolve(__dirname, 'src')],
-				loader: 'file?name=[path][name].[ext]&context=./src'
+				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass')
 			}
 		]
 	},
 	resolve: {
 		extensions: ['', '.json', '.js', '.jsx', '.scss']
 	},
-	devtool: 'source-map',
 	plugins: [
 		new CleanWebpackPlugin(['build']),
 		new ExtractTextPlugin('app.css', { allChunks: true })
